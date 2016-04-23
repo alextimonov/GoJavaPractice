@@ -9,7 +9,7 @@ public class JoinCharactersValidator extends JoinCharacters {
 
     /**
      * Constructor for decorator
-     * @param origin        object of origin class JoinCharacter\
+     * @param origin        object of origin class JoinCharacter
      */
     public JoinCharactersValidator(JoinCharacters origin) {
         this.origin = origin;
@@ -17,8 +17,8 @@ public class JoinCharactersValidator extends JoinCharacters {
 
     /**
      * makes validation of given object JoinCharacter, than invokes method join of origin class
-     * @param input array of chars
-     * @return
+     * @param input             array of chars
+     * @return                  integer value with digits from input array
      */
     @Override
     public int join(char[] input) {

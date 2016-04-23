@@ -7,6 +7,11 @@ public class SumDigits {
 
     public static final int RADIX = 10;
 
+    /**
+     * finds the sum of digits of given integer number
+     * @param number        given number
+     * @return              founded sum of digits
+     */
     public int sum(int number) {
         int sum = 0;
         while (Math.abs(number) != 0) {

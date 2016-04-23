@@ -11,7 +11,7 @@ public class JoinCharacters {
 
     /**
      * @param input     array of chars
-     * @return          integer value with figures from input array
+     * @return          integer value with digits from input array
      */
     public int join(char[] input) {
         int result = 0;
