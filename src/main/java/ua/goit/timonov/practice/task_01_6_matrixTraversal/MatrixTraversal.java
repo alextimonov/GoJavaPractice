@@ -1,9 +1,14 @@
 package ua.goit.timonov.practice.task_01_6_matrixTraversal;
 
 /**
- * Created by Alex on 24.04.2016.
+ * Class to make spiral traversal of matrix
  */
 public class MatrixTraversal {
+
+    /**
+     * @param input         given two-dimensional matrix
+     * @return              one-dimensional matrix with path of spiral traversal
+     */
     public int[] print(int[][] input) {
         int lines = input.length;
         int columns = input[0].length;
@@ -17,7 +22,7 @@ public class MatrixTraversal {
         int stepsColumns = columns;
         int stepsLines = lines - 1;
 
-        while (stepsColumns > -1 && stepsLines > -1) {
+        while (stepsColumns >= 0 && stepsLines >= 0) {
             switch (direction) {
                 case RIGHT: {
                     for (int i = 0; i < stepsColumns; i++) {

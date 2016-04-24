@@ -1,18 +1,17 @@
 package ua.goit.timonov.practice.task_01_6_matrixTraversal;
 
 /**
- * Created by Alex on 24.04.2016.
+ * Testing class for MatrixTraversal
  */
-public class MatrixTraversalCompoundValidator extends MatrixTraversalCompound {
+public class MatrixTraversalValidator extends MatrixTraversal {
     /* object of origin class */
-    private MatrixTraversalCompound origin;
-
+    private MatrixTraversal origin;
 
     /**
      * Constructor for decorator
      * @param origin        object of origin class MatrixTraversalCompound
      */
-    public MatrixTraversalCompoundValidator(MatrixTraversalCompound origin) {
+    public MatrixTraversalValidator(MatrixTraversal origin) {
         this.origin = origin;
     }
 

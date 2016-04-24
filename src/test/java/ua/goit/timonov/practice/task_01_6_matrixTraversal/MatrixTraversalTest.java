@@ -8,8 +8,7 @@ import static org.junit.Assert.*;
  * Testing class for MatrixTraversalCompound
  */
 public class MatrixTraversalTest {
-//    MatrixTraversalCompound spiralTraversal = new MatrixTraversalCompoundValidator(new MatrixTraversalCompound());
-    MatrixTraversal spiralTraversal = new MatrixTraversal();
+    MatrixTraversal spiralTraversal = new MatrixTraversalValidator(new MatrixTraversal());
 
     @Test
     public void testPrintNormal_1() {
