@@ -21,7 +21,6 @@ public class MatrixTraversal {
 
         int stepsColumns = columns;
         int stepsLines = lines - 1;
-
         while (stepsColumns >= 0 && stepsLines >= 0) {
             switch (direction) {
                 case RIGHT: {
