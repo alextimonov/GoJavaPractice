@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_6_matrixTraversal;
+package ua.goit.timonov.practice.practice_1.task_01_6_matrixTraversal;
 
 /**
  * Enum with movement direction

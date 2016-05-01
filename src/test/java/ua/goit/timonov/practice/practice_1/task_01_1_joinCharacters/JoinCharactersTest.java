@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_1_joinCharacters;
+package ua.goit.timonov.practice.practice_1.task_01_1_joinCharacters;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_3_firstOddNumber;
+package ua.goit.timonov.practice.practice_1.task_01_3_firstOddNumber;
 
 /**
  * Validation decorator for class FirstOddNumber

@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_2_sumDigits;
+package ua.goit.timonov.practice.practice_1.task_01_2_sumDigits;
 
 import org.junit.Test;
 

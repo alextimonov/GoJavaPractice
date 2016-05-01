@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_3_firstOddNumber;
+package ua.goit.timonov.practice.practice_1.task_01_3_firstOddNumber;
 
 /**
  * Class to find first odd number in array

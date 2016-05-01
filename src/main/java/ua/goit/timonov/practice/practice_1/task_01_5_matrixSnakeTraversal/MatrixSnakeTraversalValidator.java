@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_5_matrixSnakeTraversal;
+package ua.goit.timonov.practice.practice_1.task_01_5_matrixSnakeTraversal;
 
 /**
  * Testing class for MatrixSnakeTraversal

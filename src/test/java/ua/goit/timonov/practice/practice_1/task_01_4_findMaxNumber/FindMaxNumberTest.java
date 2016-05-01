@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_01_4_findMaxNumber;
+package ua.goit.timonov.practice.practice_1.task_01_4_findMaxNumber;
 
 import org.junit.Test;
 
