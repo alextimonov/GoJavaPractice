@@ -42,7 +42,7 @@ public class AddStringNumber {
     }
 
     // parses integer number to a string
-    private String parseBigIntToString(int radix, BigInteger number) {
+    public String parseBigIntToString(int radix, BigInteger number) {
         StringBuilder sb = new StringBuilder();
         BigInteger bigRadix = BigInteger.valueOf(radix);
         if (number.equals(BigInteger.ZERO)) sb.append('0');
