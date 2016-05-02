@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.task_02_5_countBits;
+package ua.goit.timonov.practice.practice_2.task_02_5_countBits;
 
 /**
  * Class that count number of bits in binary notation of int value
