@@ -63,23 +63,4 @@ public class UnixPath {
             return resultPath.toString();
         }
     }
-
-    /*
-    // parses string path to a list(deque) of directories
-    private Deque<String> parseFullPath(String input) {
-        Deque<String> fullPath = new LinkedList<>();
-        StringBuilder nextDir = new StringBuilder();
-        for (int i = 1; i < input.length(); i++) {
-            if (input.charAt(i) == SLASH_CHAR) {
-                if (nextDir.length() > 0)
-                    fullPath.add(nextDir.toString());
-                nextDir.delete(0, nextDir.length());
-            } 
-            else {
-                nextDir.append(input.charAt(i));
-            }
-        }
-        fullPath.add(nextDir.toString());
-        return fullPath;
-    }*/
 }
