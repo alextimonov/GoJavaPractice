@@ -1,6 +1,7 @@
 package ua.goit.timonov.practice.practice_3;
 
 import org.junit.Test;
+import ua.goit.timonov.practice.practice_3.task_03_1_unixPath.UnixPath;
 
 import java.util.NoSuchElementException;
 

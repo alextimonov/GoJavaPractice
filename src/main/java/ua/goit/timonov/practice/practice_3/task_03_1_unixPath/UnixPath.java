@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.practice_3;
+package ua.goit.timonov.practice.practice_3.task_03_1_unixPath;
 
 import java.util.Deque;
 import java.util.LinkedList;
