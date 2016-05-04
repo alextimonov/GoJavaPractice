@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.practice_3;
+package ua.goit.timonov.practice.practice_3.task_03_1_unixPath;
 
 import org.junit.Test;
 import ua.goit.timonov.practice.practice_3.task_03_1_unixPath.UnixPath;
