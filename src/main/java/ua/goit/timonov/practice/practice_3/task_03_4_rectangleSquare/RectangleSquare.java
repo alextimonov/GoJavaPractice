@@ -34,6 +34,13 @@ public class RectangleSquare {
                     if (!reachXLeft && (nextColumn.getxLeft() <= figure.get(i).getxLeft() ||
                             nextColumn.getxLeft() <= figure.get(i).getxRight())) {
                         reachXLeft = true;
+                        // left from current column
+                        if (nextColumn.getxLeft() <= figure.get(i).getxLeft()) {
+                            figure.add(i, new Column(nextColumn.getxLeft(), figure.get(i).getxLeft(), nextColumn.getHeight()));
+                            i++; // !
+                            nextColumn.setxLeft(figure.get(i).getxLeft());
+                        }
+
                         // inside current column
                         if (nextColumn.getxLeft() <= figure.get(i).getxRight()) {
                             if (nextColumnIsHigher(nextColumn, figure.get(i))) {
@@ -47,11 +54,7 @@ public class RectangleSquare {
                                 nextColumn.setxLeft(figure.get(i).getxRight());
                             }
                         }
-                        // left from current column
-                        if (nextColumn.getxLeft() <= figure.get(i).getxLeft()) {
-                            figure.add(i, new Column(nextColumn.getxLeft(), figure.get(i).getxLeft(), nextColumn.getHeight()));
-                            i++; // !
-                        }
+
                         i++;
                         continue;
                     }
