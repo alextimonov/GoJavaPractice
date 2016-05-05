@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Testing class for RectangleSquareOld
+ * Testing class for RectangleSquare
  */
 public class RectangleSquareTest {
     RectangleSquare rectangleSquare = new RectangleSquare();
@@ -85,6 +85,16 @@ public class RectangleSquareTest {
         int[] x = { 5, 10,  0};
         int[] h = {10, 10, 20};
         int[] w = { 7,  6, 20};
+        int expected = 400;
+        int actual = rectangleSquare.measure(x, h, w);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMeasureBorder_4() {
+        int[] x = { 0,  5, 10};
+        int[] h = {20, 10, 10};
+        int[] w = {20,  7,  6};
         int expected = 400;
         int actual = rectangleSquare.measure(x, h, w);
         assertEquals(expected, actual);
