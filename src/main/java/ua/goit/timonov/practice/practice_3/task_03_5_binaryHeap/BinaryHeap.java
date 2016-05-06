@@ -7,25 +7,68 @@ public class BinaryHeap {
     private Node root;
 
     public BinaryHeap(int size) {
-        root = new Node();
-        root.setLeftNode(makeChild(size / 2));
-        root.setRightNode(makeChild(size / 2));
-    }
-
-    private Node makeChild(int size) {
-        Node child = new Node();
-        if (size >= 2) {
-            child.setRightNode(makeChild(size / 2));
-            child.setLeftNode(makeChild(size / 2));
-        }
-        return child;
     }
 
     public void insert(int val) {
-        root.insertValue(val);
+        Node newNode = new Node();
+        newNode.setValue(val);
+        if (root == null) {
+            root = newNode;
+        }
+        else
+        {
+            Node current = root;
+            Node parent;
+            while(true)
+            {
+                parent = current;
+                if (val < current.getValue())
+                {
+                    current = current.getLeftNode();
+                    if (current == null)
+                    {
+                        parent.setLeftNode(newNode);
+                        return;
+                    }
+                }
+                else
+                {
+                    current = current.getRightNode();
+                    if (current == null)
+                    {
+                        parent.setRightNode(newNode);
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     public int poll() {
-        return root.pollMax();
+        if (root == null) {
+            throw new IllegalArgumentException("There's no elements in the heap!");
+        }
+        else {
+            Node current = root;
+            if (current.getRightNode() == null) {
+                root = null;
+                return current.getValue();
+            }
+            else {
+                Node parent = current;
+                while (true) {
+                    current = current.getRightNode();
+                    if (current.getRightNode() == null) {
+                        int result = current.getValue();
+                        parent.setRightNode(null);
+                        return result;
+                    }
+                    else {
+                        parent = current;
+                    }
+
+                }
+            }
+        }
     }
 }

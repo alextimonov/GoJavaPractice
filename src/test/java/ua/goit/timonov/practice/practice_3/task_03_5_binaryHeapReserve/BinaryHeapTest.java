@@ -1,6 +1,7 @@
-package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap;
+package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeapReserve;
 
 import org.junit.Test;
+import ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.*;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +12,7 @@ public class BinaryHeapTest {
 
     @Test
     public void testInsertNormal_1() {
-        BinaryHeap heap = new BinaryHeap(8);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(8);
         heap.insert(5);
         heap.insert(3);
         heap.insert(8);
@@ -24,7 +25,7 @@ public class BinaryHeapTest {
 
     @Test
     public void testPollNormal_1() {
-        BinaryHeap heap = new BinaryHeap(32);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(32);
         heap.insert(5);
         heap.insert(3);
         heap.insert(8);
@@ -39,7 +40,7 @@ public class BinaryHeapTest {
 
     @Test
     public void testPollNormal_2() {
-        BinaryHeap heap = new BinaryHeap(2);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(2);
         heap.insert(4);
         heap.insert(2);
         int expected = 4;
@@ -49,7 +50,7 @@ public class BinaryHeapTest {
 
     @Test
     public void testPollNormal_3() {
-        BinaryHeap heap = new BinaryHeap(4);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(4);
         heap.insert(1);
         heap.insert(2);
         heap.insert(3);
@@ -61,14 +62,14 @@ public class BinaryHeapTest {
 
     @Test
     public void testInsertNormal_4() {
-        BinaryHeap heap = new BinaryHeap(2);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(2);
         heap.insert(0);
         heap.insert(1);
     }
 
     @Test
     public void testPollNormal_4() {
-        BinaryHeap heap = new BinaryHeap(2);
+        ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap heap = new ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap.BinaryHeap(2);
         heap.insert(0);
         heap.insert(1);
         int expected = 1;

@@ -5,27 +5,10 @@ package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap;
  */
 public class Node {
     private int value;
-    private boolean isOccupied;
     private Node leftNode;
     private Node rightNode;
 
     public Node() {
-        value = 0;
-        isOccupied = false;
-        leftNode = null;
-        rightNode = null;
-    }
-
-    public void setLeftNode(Node leftNode) {
-        this.leftNode = leftNode;
-    }
-
-    public void setRightNode(Node rightNode) {
-        this.rightNode = rightNode;
-    }
-
-    public boolean isOccupied() {
-        return isOccupied;
     }
 
     public int getValue() {
@@ -36,22 +19,24 @@ public class Node {
         this.value = value;
     }
 
-    public void insertValue(int val) {
-        if (!isOccupied) {
-            this.value = val;
-        }
-        else {
-            if (val >= value) {
-                rightNode.insertValue(val);
-            }
-            else {
-                leftNode.insertValue(val);
-            }
-        }
+    public Node getLeftNode() {
+        return leftNode;
+    }
+
+    public Node getRightNode() {
+        return rightNode;
+    }
+
+    public void setLeftNode(Node leftNode) {
+        this.leftNode = leftNode;
+    }
+
+    public void setRightNode(Node rightNode) {
+        this.rightNode = rightNode;
     }
 
     public int pollMax() {
-        if (rightNode.isOccupied) {
+        if (rightNode != null) {
             return rightNode.pollMax();
         }
         else return value;
