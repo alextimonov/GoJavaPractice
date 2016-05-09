@@ -62,7 +62,6 @@ public class Node {
             height = rightNode.height + 1;
             return;
         }
-
         if (leftNode.height > rightNode.height ) {
             height = leftNode.height + 1;
         }

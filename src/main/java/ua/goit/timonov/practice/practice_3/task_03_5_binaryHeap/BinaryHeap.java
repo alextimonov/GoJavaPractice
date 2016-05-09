@@ -15,9 +15,7 @@ public class BinaryHeap {
      * @param val       value to be inserted
      */
     public void insert(int val) {
-        {
         root = insertNode(root, val);
-        }
     }
 
     /**
@@ -66,15 +64,16 @@ public class BinaryHeap {
 
     // removes from the tree node with max value
     private Node removeMaxNode(Node node) {
-        if (node.getRightNode() == null) {
+        Node rightNode = node.getRightNode();
+        if (rightNode == null) {
             root = node.getLeftNode();
             return root;
         }
-        if (node.getRightNode().getRightNode() != null) {
-            return removeMaxNode(node.getRightNode());
+        if (rightNode.getRightNode() != null) {
+            return removeMaxNode(rightNode);
         }
         else {
-            node.setRightNode(node.getRightNode().getLeftNode());
+            node.setRightNode(rightNode.getLeftNode());
             return node;
         }
     }
