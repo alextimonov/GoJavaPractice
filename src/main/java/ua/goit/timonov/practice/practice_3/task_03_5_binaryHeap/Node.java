@@ -80,5 +80,50 @@ public class Node {
         return rightNode.height - leftNode.height;
     }
 
+    /**
+     * makes balancing of the given node
+     * @return          balanced node
+     */
+    public Node balance() {
+        fixHeight();
+        if (getBalance() == 2) {
+            if (rightNode.getBalance() < 0) {
+                rightNode = rightNode.rotateRight();
+            }
+            return rotateLeft();
+        }
+        if (getBalance() == -2) {
+            if (leftNode.getBalance() > 0) {
+                leftNode = leftNode.rotateLeft();
+            }
+            return rotateRight();
+        }
+        return this;
+    }
 
+    /**
+     * makes right rotation of subtree around given node
+     * @return          node that is the root of rotated subtree
+     */
+    private Node rotateRight() {
+        Node exLeft = leftNode;
+        leftNode = exLeft.rightNode;
+        exLeft.rightNode = this;
+        fixHeight();
+        exLeft.fixHeight();
+        return exLeft;
+    }
+
+    /**
+     * makes left rotation of subtree around given node
+     * @return          node that is the root of rotated subtree
+     */
+    private Node rotateLeft() {
+        Node exRight = rightNode;
+        rightNode = exRight.leftNode;
+        exRight.leftNode = this;
+        fixHeight();
+        exRight.fixHeight();
+        return exRight;
+    }
 }

@@ -21,11 +21,21 @@ public class BinaryHeap {
     }
 
     /**
-     * inserts given value to the node or its child nodes
-     * @param node      given node of the tree
-     * @param val       value to be inserted
-     * @return          node in which value has been inserted
+     * finds and removes max value in the tree
+     * @return      max value
      */
+    public int poll() {
+        if (root == null) {
+            throw new IllegalArgumentException("There's no elements in the heap!");
+        }
+        else {
+            int result = findMaxValue(root);
+            removeMaxNode(root);
+            return result;
+        }
+    }
+
+    // inserts given value to the node or its child nodes
     private Node insertNode(Node node, int val) {
         if (node == null) {
             node = new Node(val);
@@ -40,88 +50,32 @@ public class BinaryHeap {
                 Node inserted = insertNode(node.getRightNode(), val);
                 node.setRightNode(inserted);
             }
-            return balance(node);
+            return node.balance();
         }
     }
 
-    /**
-     * makes balancing of the given node
-     * @param node      give node
-     * @return          balanced node
-     */
-    private Node balance(Node node) {
-        node.fixHeight();
-        if (node.getBalance() == 2) {
-            if (node.getRightNode().getBalance() < 0) {
-                node.setRightNode(rotateRight(node.getRightNode()));
-            }
-            return rotateLeft(node);
-        }
-        if (node.getBalance() == -2) {
-            if (node.getLeftNode().getBalance() > 0) {
-                node.setLeftNode(rotateLeft(node.getLeftNode()));
-            }
-            return rotateRight(node);
-        }
-        return node;
-    }
-
-    /**
-     * makes right rotation of subtree around given node
-     * @param node      given node
-     * @return          node that is the root of rotated subtree
-     */
-    private Node rotateRight(Node node) {
-        Node exLeft = node.getLeftNode();
-        node.setLeftNode(exLeft.getRightNode());
-        exLeft.setRightNode(node);
-        node.fixHeight();
-        exLeft.fixHeight();
-        return exLeft;
-    }
-
-    /**
-     * makes left rotation of subtree around given node
-     * @param node      given node
-     * @return          node that is the root of rotated subtree
-     */
-    private Node rotateLeft(Node node) {
-        Node exRight = node.getRightNode();
-        node.setRightNode(exRight.getLeftNode());
-        exRight.setLeftNode(node);
-        node.fixHeight();
-        exRight.fixHeight();
-        return exRight;
-    }
-
-    /**
-     * finds and removes max value in the tree
-     * @return      max value
-     */
-    public int poll() {
-        if (root == null) {
-            throw new IllegalArgumentException("There's no elements in the heap!");
+    // finds max value in the tree
+    private int findMaxValue(Node node) {
+        if (node.getRightNode() == null) {
+            return node.getValue();
         }
         else {
-            Node current = root;
-            if (current.getRightNode() == null) {
-                root = null;
-                return current.getValue();
-            }
-            else {
-                Node parent = current;
-                while (true) {
-                    current = current.getRightNode();
-                    if (current.getRightNode() == null) {
-                        int result = current.getValue();
-                        parent.setRightNode(null);
-                        return result;
-                    }
-                    else {
-                        parent = current;
-                    }
-                }
-            }
+            return findMaxValue(node.getRightNode());
+        }
+    }
+
+    // removes from the tree node with max value
+    private Node removeMaxNode(Node node) {
+        if (node.getRightNode() == null) {
+            root = node.getLeftNode();
+            return root;
+        }
+        if (node.getRightNode().getRightNode() != null) {
+            return removeMaxNode(node.getRightNode());
+        }
+        else {
+            node.setRightNode(node.getRightNode().getLeftNode());
+            return node;
         }
     }
 }
