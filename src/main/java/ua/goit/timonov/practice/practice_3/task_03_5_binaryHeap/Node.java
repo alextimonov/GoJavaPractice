@@ -1,14 +1,25 @@
 package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap;
 
 /**
- * Created by Alex on 05.05.2016.
+ * Node of binary heap
  */
 public class Node {
-    private int value;
+    /* pointer to left child node */
     private Node leftNode;
+    /* pointer to left child node */
     private Node rightNode;
+    /* height of node */
+    private int height;
+    /* stored value */
+    private int value;
 
     public Node() {
+        height = 1;
+    }
+
+    public Node(int value) {
+        this();
+        this.value = value;
     }
 
     public int getValue() {
@@ -23,10 +34,6 @@ public class Node {
         return leftNode;
     }
 
-    public Node getRightNode() {
-        return rightNode;
-    }
-
     public void setLeftNode(Node leftNode) {
         this.leftNode = leftNode;
     }
@@ -35,10 +42,43 @@ public class Node {
         this.rightNode = rightNode;
     }
 
-    public int pollMax() {
-        if (rightNode != null) {
-            return rightNode.pollMax();
-        }
-        else return value;
+    public Node getRightNode() {
+        return rightNode;
     }
+
+    /**
+     * defines height of current node depending on heights of child nodes
+     */
+    public void fixHeight() {
+        if (leftNode == null && rightNode == null) {
+            height = 1;
+            return;
+        }
+        if (rightNode == null) {
+            height = leftNode.height + 1;
+            return;
+        }
+        if (leftNode == null) {
+            height = rightNode.height + 1;
+            return;
+        }
+
+        if (leftNode.height > rightNode.height ) {
+            height = leftNode.height + 1;
+        }
+        else height = rightNode.height + 1;
+    }
+
+    /**
+     * finds the balance of heights of left and right child nodes
+     * @return      founded value of balance
+     */
+    public int getBalance() {
+        if (rightNode == null && leftNode == null) return 0;
+        if (rightNode == null) return -leftNode.height;
+        if (leftNode == null) return rightNode.height;
+        return rightNode.height - leftNode.height;
+    }
+
+
 }

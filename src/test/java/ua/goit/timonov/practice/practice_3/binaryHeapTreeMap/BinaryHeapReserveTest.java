@@ -1,37 +1,36 @@
-package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeap;
+package ua.goit.timonov.practice.practice_3.binaryHeapTreeMap;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Testing class for BinaryHeap
+ * Testing class for BinaryHeapTreeMap
  */
-public class BinaryHeapTest {
+public class BinaryHeapReserveTest {
 
     @Test
     public void testInsertNormal_1() {
-        BinaryHeap heap = new BinaryHeap(8);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(8);
         heap.insert(5);
         heap.insert(3);
-        heap.insert(6);
-        heap.insert(7);
         heap.insert(8);
         heap.insert(2);
         heap.insert(4);
+        heap.insert(7);
         heap.insert(9);
+        heap.insert(10);
     }
 
     @Test
     public void testPollNormal_1() {
-        BinaryHeap heap = new BinaryHeap(32);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(32);
         heap.insert(5);
         heap.insert(3);
-        heap.insert(6);
-        heap.insert(7);
         heap.insert(8);
         heap.insert(2);
         heap.insert(4);
+        heap.insert(7);
         heap.insert(9);
         int expected = 9;
         int actual = heap.poll();
@@ -40,10 +39,9 @@ public class BinaryHeapTest {
 
     @Test
     public void testPollNormal_2() {
-        BinaryHeap heap = new BinaryHeap(2);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(2);
         heap.insert(4);
         heap.insert(2);
-        heap.insert(1);
         int expected = 4;
         int actual = heap.poll();
         assertEquals(expected, actual);
@@ -51,62 +49,46 @@ public class BinaryHeapTest {
 
     @Test
     public void testPollNormal_3() {
-        BinaryHeap heap = new BinaryHeap(4);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(4);
         heap.insert(1);
         heap.insert(2);
         heap.insert(3);
         heap.insert(4);
-        heap.insert(5);
-        heap.insert(0);
-        int expected = 5;
+        int expected = 4;
         int actual = heap.poll();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testInsertNormal_4() {
-        BinaryHeap heap = new BinaryHeap(2);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(2);
+        heap.insert(0);
         heap.insert(1);
-        heap.insert(2);
     }
 
     @Test
     public void testPollNormal_4() {
-        BinaryHeap heap = new BinaryHeap(2);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(2);
+        heap.insert(0);
         heap.insert(1);
-        heap.insert(2);
-        int expected = 2;
+        int expected = 1;
         int actual = heap.poll();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testInsertNormal_5() {
-        BinaryHeap heap = new BinaryHeap(2);
-        heap.insert(2);
-        heap.insert(2);
-        heap.insert(2);
-        heap.insert(2);
-        int expected = 2;
-        int actual = heap.poll();
-        assertEquals(expected, actual);
-    }
-
-    @Test(timeout = 200)
     public void testInsertAbnormal_1() {
         int number = 32768;
-        BinaryHeap heap = new BinaryHeap(number);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(number);
         for (int i = 0; i < number; i++) {
             heap.insert(i);
         }
-        String s1 = heap.toString();
-        System.out.println(s1);
     }
 
-    @Test(timeout = 200)
+    @Test
     public void testPollAbnormal_1() {
         int number = 32768;
-        BinaryHeap heap = new BinaryHeap(number);
+        BinaryHeapTreeMap heap = new BinaryHeapTreeMap(number);
         for (int i = 0; i < number; i++) {
             heap.insert(i);
         }

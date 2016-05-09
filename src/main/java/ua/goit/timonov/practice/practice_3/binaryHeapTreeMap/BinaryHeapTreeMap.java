@@ -1,12 +1,12 @@
-package ua.goit.timonov.practice.practice_3.task_03_5_binaryHeapReserve;
+package ua.goit.timonov.practice.practice_3.binaryHeapTreeMap;
 
 import java.util.TreeMap;
 
 
-public class BinaryHeap {
+public class BinaryHeapTreeMap {
     private TreeMap<Integer, Integer> map = new TreeMap<>();
 
-    public BinaryHeap(int size) {
+    public BinaryHeapTreeMap(int size) {
 
     }
 
