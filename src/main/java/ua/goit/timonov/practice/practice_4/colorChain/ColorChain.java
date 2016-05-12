@@ -1,13 +1,20 @@
 package ua.goit.timonov.practice.practice_4.colorChain;
 
 /**
- *
+ * Class with method to find number of possible variants to build the chain with given length using links
+ * with length 1, 2 and 3 meters
  */
 public class ColorChain {
 
     public static final int COLOR_NUMBER = 3;
 
+    /**
+     * finds the number of possible variants to build the chain with given length
+     * @param N     given length of the chain
+     * @return      number of possible variants
+     */
     public int count(int N) {
+        if (N < 0) throw new IllegalArgumentException("N should not be negative!");
         int variants[] = new int[COLOR_NUMBER];
         for (int i = 0; i <= N ; i++) {
             if (i > COLOR_NUMBER) {
@@ -25,6 +32,7 @@ public class ColorChain {
         return variants[N % COLOR_NUMBER];
     }
 
+    // finds sum of elements in array
     private int sumArray(int[] variants) {
         int sum = 0;
         for (int i = 0; i < variants.length; i++) {

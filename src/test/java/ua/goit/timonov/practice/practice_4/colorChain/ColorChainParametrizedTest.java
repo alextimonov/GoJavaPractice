@@ -9,7 +9,7 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 /**
- * Created by Alex on 11.05.2016.
+ * Testing parametrized class for ColorChain
  */
 @RunWith(value = Parameterized.class)
 public class ColorChainParametrizedTest {
@@ -33,7 +33,7 @@ public class ColorChainParametrizedTest {
                 {6, 24},
                 {7, 44},
                 {10, 274},
-                {20, 121415}
+                {20, 121415},
         });
     }
 
@@ -41,5 +41,4 @@ public class ColorChainParametrizedTest {
     public void testCount() {
         assertEquals(nCases, new ColorChain().count(length));
     }
-
 }
