@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.practice_4.breakLine;
+package ua.goit.timonov.practice.extraPractice.breakLine;
 
 /**
  * Created by Alex on 09.05.2016.
