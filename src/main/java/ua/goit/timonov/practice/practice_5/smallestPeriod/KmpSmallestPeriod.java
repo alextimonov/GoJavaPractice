@@ -1,4 +1,4 @@
-package ua.goit.timonov.practice.practice_5;
+package ua.goit.timonov.practice.practice_5.smallestPeriod;
 
 /**
  * Class to find smallest repetition period in the string
