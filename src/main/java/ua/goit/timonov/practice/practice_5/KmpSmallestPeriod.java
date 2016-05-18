@@ -1,9 +1,14 @@
 package ua.goit.timonov.practice.practice_5;
 
 /**
- * Created by Alex on 18.05.2016.
+ * Class to find smallest repetition period in the string
  */
 public class KmpSmallestPeriod {
+    /**
+     * finds smallest repetition period in the string
+     * @param input     given string
+     * @return          smallest repetition substring
+     */
     public String findSmalletstPeriod(String input) {
         if (input == null) return null;
         boolean periodNotFounded = true;
@@ -16,6 +21,7 @@ public class KmpSmallestPeriod {
         else return input.substring(0, testValue);
     }
 
+    // checks if input string consists of periods with given length
     private boolean checkPeriod(int testValue, String input) {
         if (input.length() % testValue != 0) return true;
         else {

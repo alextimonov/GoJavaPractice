@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by Alex on 18.05.2016.
+ * Testing class for KmpSmallestPeriod
  */
 public class KmpSmallestPeriodTest {
     KmpSmallestPeriod kmp = new KmpSmallestPeriod();
