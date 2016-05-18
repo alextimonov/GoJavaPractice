@@ -1,9 +1,10 @@
 package ua.goit.timonov.practice.practice_4.doubles;
 
 /**
- * Created by Alex on 16.05.2016.
+ * Class to parse string to double number
  */
 public class Doubles {
+    /* char constants */
     public static final char DIGIT_ZERO = '0';
     public static final char DIGIT_NINE = '9';
     public static final char CHAR_DOT = '.';
@@ -13,18 +14,31 @@ public class Doubles {
     public static final char CHAR_DOUBLE_LOWER = 'd';
     public static final char PLUS = '+';
     public static final char MINUS = '-';
+    /* value of used radix */
     public static final int RADIX = 10;
 
+    /* value of integer part of number */
     private int integerPart = 0;
+    /* value of fractional part of number */
     private int fractionalPart = 0;
+    /* value of exponent part of number */
     private int exponentPart = 0;
+    /* multiplier is 1 if number is positive and -1 if it is negative */
     private int multiplier = 1;
 
+    /* flag of finding dot in the string */
     private boolean dotFounded = false;
+    /* length of integer part */
     private int lengthOfIntegerPart = 0;
+    /* length of fractional part */
     private int lengthOfFractionalPart = 0;
 
 
+    /**
+     * parses double number from given string
+     * @param s     given string
+     * @return      parsed double number
+     */
     public Double parse(String s) {
         char stringNumber[] = s.toCharArray();
         double result = 0;
@@ -40,6 +54,7 @@ public class Doubles {
         return result;
     }
 
+    // finds length of fractional part
     private int checkFindFractionalPart(int positionEndOfInteger, int positionEndOfFractional) {
         if (dotFounded && lengthOfIntegerPart == 0 && positionEndOfInteger + 1 >= positionEndOfFractional) {
             throw new IllegalArgumentException("Dot is founded, fractional part has no symbols!");
@@ -47,6 +62,7 @@ public class Doubles {
         return positionEndOfFractional - positionEndOfInteger - 1;
     }
 
+    // parses integer part of number, returns position of delimiter
     private int parseInteger(int position, char[] stringNumber) {
         boolean delimiterNotFound = true;
         int number = 0;
@@ -82,12 +98,14 @@ public class Doubles {
         return position;
     }
 
+    // returns next position after founded signs "+" or "-" (if it is available)
     private int checkNextPosition(int position, char[] stringNumber) {
         if (position < stringNumber.length - 1) position++;
         else throw new IllegalArgumentException("Digits are not found!");
         return position;
     }
 
+    // parses fractional part of number, returns position of delimiter
     private int parseFractional(int position, char[] stringNumber) {
         if (position == stringNumber.length) return position;
         char symbol = stringNumber[position];
@@ -115,6 +133,7 @@ public class Doubles {
         return position;
     }
 
+    // parses exponent part of number
     private int parseExponent(int position, char[] stringNumber) {
         if (position == stringNumber.length) return position;
         position++;
@@ -152,6 +171,7 @@ public class Doubles {
         return position;
     }
 
+    // builds double number with founded parts
     private double buildDoubleNumber() {
         double result = multiplier * (integerPart + fractionalPart / Math.pow(RADIX, lengthOfFractionalPart));
         result = result * Math.pow(RADIX, exponentPart);
