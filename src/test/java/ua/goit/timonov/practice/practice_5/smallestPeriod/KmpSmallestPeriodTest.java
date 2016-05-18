@@ -1,6 +1,7 @@
-package ua.goit.timonov.practice.practice_5;
+package ua.goit.timonov.practice.practice_5.smallestPeriod;
 
 import org.junit.Test;
+import ua.goit.timonov.practice.practice_5.KmpSmallestPeriod;
 
 import static org.junit.Assert.*;
 
