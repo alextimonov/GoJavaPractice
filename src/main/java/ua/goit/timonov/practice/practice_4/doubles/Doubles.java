@@ -78,13 +78,12 @@ public class Doubles {
         }
         while (position < stringNumber.length && delimiterNotFound) {
             char symbol = stringNumber[position];
-            if (symbol == CHAR_DOT || symbol == CHAR_EXPONENT_LOWER || symbol == CHAR_EXPONENT_UPPER ||
-                    symbol == CHAR_DOUBLE_UPPER || symbol == CHAR_DOUBLE_LOWER) {
+            if (isDelimiterOfIntegerPart(symbol)) {
                 delimiterNotFound = false;
                 if (symbol == CHAR_DOT) dotFounded = true;
             }
             else {
-                if (symbol >= DIGIT_ZERO && symbol <= DIGIT_NINE) {
+                if (isDigit(symbol)) {
                     number = number * RADIX + symbol - DIGIT_ZERO;
                     lengthOfIntegerPart++;
                     position++;
@@ -98,6 +97,11 @@ public class Doubles {
         return position;
     }
 
+    // defines if symbol is a delimiter of integer part of number
+    private boolean isDelimiterOfIntegerPart(char symbol) {
+        return symbol == CHAR_DOT || isDoubleOrExponentDelimiter(symbol);
+    }
+
     // returns next position after founded signs "+" or "-" (if it is available)
     private int checkNextPosition(int position, char[] stringNumber) {
         if (position < stringNumber.length - 1) position++;
@@ -109,18 +113,17 @@ public class Doubles {
     private int parseFractional(int position, char[] stringNumber) {
         if (position == stringNumber.length) return position;
         char symbol = stringNumber[position];
-        if (symbol == CHAR_EXPONENT_LOWER || symbol == CHAR_EXPONENT_UPPER ||
-                symbol == CHAR_DOUBLE_UPPER || symbol == CHAR_DOUBLE_LOWER) return position;
+        if (isDoubleOrExponentDelimiter(symbol)) return position;
         position++;
         int number = 0;
         boolean delimiterNotFound = true;
         while (position < stringNumber.length && delimiterNotFound) {
             symbol = stringNumber[position];
-            if (symbol == CHAR_EXPONENT_LOWER || symbol == CHAR_EXPONENT_UPPER) {
+            if (isExponentChar(symbol)) {
                 delimiterNotFound = false;
             }
             else {
-                if (symbol >= DIGIT_ZERO && symbol <= DIGIT_NINE) {
+                if (isDigit(symbol)) {
                     number = number * RADIX + symbol - DIGIT_ZERO;
                     position++;
                 }
@@ -131,6 +134,26 @@ public class Doubles {
         }
         fractionalPart = number;
         return position;
+    }
+
+    // defines if symbol is a digit
+    private boolean isDigit(char symbol) {
+        return symbol >= DIGIT_ZERO && symbol <= DIGIT_NINE;
+    }
+
+    // defines if symbol is an exponent ('e' or 'E') or double ('d' or 'D') char
+    private boolean isDoubleOrExponentDelimiter(char symbol) {
+        return isExponentChar(symbol) || isDoubleChar(symbol);
+    }
+
+    // defines if symbol is an exponent char ('e' or 'E')
+    private boolean isExponentChar(char symbol) {
+        return symbol == CHAR_EXPONENT_LOWER || symbol == CHAR_EXPONENT_UPPER;
+    }
+
+    // defines if symbol is a double char ('d' or 'D')
+    private boolean isDoubleChar(char symbol) {
+        return symbol == CHAR_DOUBLE_UPPER || symbol == CHAR_DOUBLE_LOWER;
     }
 
     // parses exponent part of number
@@ -151,12 +174,12 @@ public class Doubles {
         boolean delimiterNotFound = true;
         while (position < stringNumber.length && delimiterNotFound) {
             char symbol = stringNumber[position];
-            if (symbol == CHAR_DOUBLE_UPPER || symbol == CHAR_DOUBLE_LOWER) {
+            if (isDoubleChar(symbol)) {
                 delimiterNotFound = false;
                 position++;
             }
             else {
-                if (symbol >= DIGIT_ZERO && symbol <= DIGIT_NINE) {
+                if (isDigit(symbol)) {
                     number = number * RADIX + symbol - DIGIT_ZERO;
                     position++;
                 } else {

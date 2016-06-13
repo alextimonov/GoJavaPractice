@@ -10,13 +10,14 @@ public class ColorChain {
 
     /**
      * finds the number of possible variants to build the chain with given length
-     * @param N     given length of the chain
+     * @param chainLength     given length of the chain
      * @return      number of possible variants
      */
-    public int count(int N) {
-        if (N < 0) throw new IllegalArgumentException("N should not be negative!");
+    public int count(int chainLength) {
+        if (chainLength < 0)
+            throw new IllegalArgumentException("Chain length should not be negative!");
         int variants[] = new int[COLOR_NUMBER];
-        for (int i = 0; i <= N ; i++) {
+        for (int i = 0; i <= chainLength ; i++) {
             if (i > COLOR_NUMBER) {
                 variants[i % COLOR_NUMBER] = sumArray(variants);
             }
@@ -29,7 +30,7 @@ public class ColorChain {
                 }
             }
         }
-        return variants[N % COLOR_NUMBER];
+        return variants[chainLength % COLOR_NUMBER];
     }
 
     // finds sum of elements in array
